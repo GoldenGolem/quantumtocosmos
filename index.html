@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Power of Ideas</title>
+  <meta charset="UTF-8">  
+  <!-- <meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+  <meta name="HandheldFriendly" content="true" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+
+
+
+
+  <link href="dist/app.css?v=013" rel="stylesheet" type="text/css"/>
+  <script>
+      var ajaxBaseURL = 'http://138.197.151.180/wordpress/'
+  </script>
+</head>
+<body>
+<div id="app">
+
+    <a class="drawer__open"
+       href="#"
+       @click.prevent="display.drawer = !display.drawer">
+        <i class="material-icons">menu</i>
+    </a>
+
+    <div class="pi-logo">
+      <a href="https://www.perimeterinstitute.ca/" target="_blank">
+        <svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M26.5361446,27.3760933 C26.5963855,29.1253644 29.2168675,29.1836735 29.5783133,29.1836735 C30.0301205,29.1836735 30,29.9708455 29.6385542,29.9708455 C29.2771084,29.9708455 19.6084337,29.9708455 19.246988,29.9708455 C18.9156627,29.9708455 18.8554217,29.1836735 19.3072289,29.1836735 C19.7289157,29.1836735 22.1686747,29.0962099 22.3192771,27.3760933 C22.3795181,26.4431487 22.4698795,13.9650146 22.4698795,5.10204082 C19.6987952,5.10204082 19.1566265,5.10204082 16.3855422,5.10204082 C19.6084337,6.32653061 21.2650602,8.4548105 21.2048193,11.1661808 C21.1144578,14.8688047 18.9457831,16.7346939 17.6807229,17.3760933 C15.3614458,18.5714286 10.9638554,18.9212828 7.68072289,18.7172012 C7.68072289,22.5947522 7.65060241,26.3556851 7.68072289,27.3177843 C7.74096386,29.212828 10.2710843,29.154519 11.0542169,29.212828 C11.4759036,29.2419825 11.4759036,30 11.0542169,30 C10.6325301,30 0.662650602,30 0.240963855,30 C-0.0602409639,30 -0.120481928,29.212828 0.301204819,29.212828 C0.722891566,29.212828 3.64457831,29.271137 3.79518072,27.4052478 C3.88554217,26.2390671 3.85542169,8.13411079 3.79518072,6.44314869 C3.73493976,4.40233236 0.78313253,4.48979592 0.361445783,4.40233236 C-0.0602409639,4.34402332 0.0602409639,3.61516035 0.361445783,3.61516035 C0.361445783,3.61516035 29.2771084,3.61516035 29.6987952,3.61516035 C30.1204819,3.61516035 30.060241,4.28571429 29.7590361,4.37317784 C29.4578313,4.43148688 26.5361446,4.43148688 26.5361446,6.26822157 C26.5662651,7.696793 26.5060241,26.6472303 26.5361446,27.3760933 Z M7.80120482,5.24781341 C7.80120482,5.24781341 7.74096386,17.2303207 7.74096386,17.4052478 C9.18674699,17.3469388 11.626506,17.3760933 12.8313253,16.9387755 C15.060241,16.122449 17.2891566,14.606414 17.2590361,10.9912536 C17.2590361,8.86297376 15.5722892,6.79300292 13.8253012,6.06413994 C12.2891566,5.42274052 10.3313253,5.24781341 8.01204819,5.21865889 L7.80120482,5.24781341 Z M14.9698795,0 L22.8012048,2.09912536 L7.13855422,2.09912536 L14.9698795,0 Z" id="pi-logo-svg" fill="#000000" fill-rule="nonzero"></path>
+          </g>
+        </svg>
+      </a>  
+    </div>
+
+    <router-view></router-view>
+    <transition name="drawer">
+        <div class="drawer"
+
+             v-cloak
+             v-if="display.drawer">
+
+            <a class="drawer__close"
+               href="#"
+               @click.prevent="display.drawer = !display.drawer">
+                <i class="material-icons">chevron_left</i>
+            </a>
+
+            <div class="d-head">
+
+                <div v-if="display.search" class="d-search">
+
+                    <div class="d-search__inner">
+
+                        <input type="text"
+                               v-model="filter.search"
+                               class="d-search__input">
+
+                        <span class="d-search__search">
+                            <i class="material-icons">search</i>
+                        </span>
+
+                        <a href="#"
+                           @click.prevent="display.search = !display.search"
+                           class="d-search__close">
+                            <i class="material-icons">close</i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div v-if="! display.search" class="d-mobile-head">
+
+                    <a href="#"
+                       @click.prevent="toggleFilterCategories"
+                       class="d-mobile-head__status">
+
+                        <span v-if="filter.status">Filtered</span>
+                        <span v-if="!filter.status">All</span>
+
+                        <span class="d-mobile-head__status__icon">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+
+                    </a>
+
+                    <div v-if="!display.filters" class="d-mobile-head__action">
+
+                        <a href="#"
+                           @click.prevent="display.search = !display.search"
+                           class="d-mobile-head__ico">
+                            <i class="material-icons">search</i>
+                        </a>
+
+                        <a href="#"
+                           @click.prevent="display.drawer = !display.drawer"
+                           class="d-mobile-head__ico">
+                            <i class="material-icons">close</i>
+                        </a>
+
+                    </div>
+
+                    <div v-if="display.filters" class="d-mobile-head__action">
+
+                        <a href="#"
+                           @click.prevent="clearFilters">clear all</a>
+
+                        <a href="#"
+                           @click.prevent="toggleFilterCategories">done</a>
+
+                    </div>
+                </div>
+
+                <div v-if="display.filters" class="d-filters">
+
+                    <div v-if="display.categories" class="d-categories">
+                        <div class="d-categories__list">
+
+                            <div class="hr"></div>
+
+                            <a v-for="category in filter.categories"
+                               class="d-category"
+                               :class="{ 'd-category--active': category.active === true }"
+                               @click.prevent="category.active = !category.active"
+                               href="#">
+                                <span>{{ category.label }}</span>
+                                <i v-if="category.active" class="material-icons active">check_box</i>
+                                <i v-else class="material-icons">check_box_outline_blank</i>
+                            </a>
+
+                            <div class="hr"></div>
+
+                            <a class="d-category"
+                               @click.prevent="filter.featured = !filter.featured"
+                               :class="{ 'd-category--active': filter.featured === true }"
+                               href="#">
+                                <span>Featured</span>
+                                <i v-if="filter.featured" class="material-icons active">check_box</i>
+                                <i v-else class="material-icons">check_box_outline_blank</i>
+                            </a>
+
+                            <a class="d-category"
+                               @click.prevent="filter.latest = !filter.latest"
+                               :class="{ 'd-category--active': filter.latest === true }"
+                               href="#">
+                                <span>Latest</span>
+                                <i v-if="filter.latest" class="material-icons active">check_box</i>
+                                <i v-else class="material-icons">check_box_outline_blank</i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="d-filters__list">
+
+                        <div class="d-types">
+                            <a class="d-type"
+                               :class="{ 'd-type--active': filter.interactive === true }"
+                               href="#"
+                               @click.prevent="filter.interactive = !filter.interactive">
+                                <i class="material-icons">mouse</i>
+                            </a>
+                            <a v-for="type in filter.scaledistance"
+                               class="d-type"
+                               :class="{ 'd-type--active': type.active === true }"
+                               href="#"
+                               @click.prevent="type.active = !type.active">
+                                <i class="material-icons">{{type.icon}}</i>
+                            </a>
+                        </div>
+
+                        <a class="d-categories__toggle"
+                           @click.prevent="display.categories = ! display.categories"
+                           :class="{ 'active': display.categories === true }"
+                           href="#">
+                            <i class="material-icons">filter_list</i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="d-active-categories">
+
+                    <a v-for="category in activeCategories"
+                       class="d-active-category"
+                       @click.prevent="toggleCategory(category.id)"
+                       href="#">
+                        <span>{{ category.label }}</span>
+                        <i class="material-icons">cancel</i>
+                    </a>
+
+                    <a href="#"
+                       v-if="filter.featured"
+                       class="d-active-category"
+                       @click.prevent="toggleFilter('featured')">
+                        <span>Featured</span>
+                        <i class="material-icons">cancel</i>
+                    </a>
+
+                    <a href="#"
+                       v-if="filter.latest"
+                       class="d-active-category"
+                       @click.prevent="toggleFilter('latest')">
+                        <span>Latest</span>
+                        <i class="material-icons">cancel</i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="d-list">
+                <div class="d-list__inner" v-if="items.length > 0">
+                    <transition-group name="list" tag="div">
+                        <a v-for="item in items"
+                           :key="item.slug"
+                           class="d-item"
+                           @click.prevent="itemAction(item, true)"
+                           :class="'d-item--' + item.type">
+                            <i class="material-icons">{{ item.icon }}</i>
+                            <span>{{ item.title }}</span>
+                        </a>
+                    </transition-group>
+                </div>
+                <div class="d-list__inner" v-if="items.length == 0">
+                    <div class="d-no-item">
+                        Try a different combination of filters…
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+
+</div>
+
+<script src="dist/app.js?v=013"></script>
+
+</body>
+</html>

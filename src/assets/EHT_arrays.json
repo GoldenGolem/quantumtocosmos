@@ -1,0 +1,66 @@
+[  
+    {  
+        "shortname": "Chile",
+        "title":"APEX, ASTE, ALMA",
+        "location":"",
+        "lon":-22.9475831, 
+        "lat":-68.2128454,
+        "horizontal":40,
+        "vertical":35
+    },
+    {  
+        "shortname": "Hawaii (USA)",
+        "title":"JCMT, SMA",
+        "location":"",
+        "lon":24, 
+        "lat":-158,
+        "horizontal":10,
+        "vertical":-45
+    },
+    {  
+        "shortname": "Spain",
+        "title":"IRAM 30-meter telescope",
+        "location":"",
+        "lon":44.5020298, 
+        "lat":5.6439367,
+        "horizontal":22,
+        "vertical":23
+    },
+    {  
+        "shortname": "The Greenland Telescope",
+        "title":"The Greenland Telescope",
+        "location":"",
+        "lon":72.583333, 
+        "lat":-38.416667,
+        "horizontal":180,
+        "vertical":45
+    },
+    {  
+        "shortname": "Mexico Array",
+        "title":"LMT",
+        "location":"",
+        "lon":23, 
+        "lat":-96,
+        "horizontal":97,
+        "vertical":80
+    },
+    {  
+        "shortname": "Arizona (USA)",
+        "title":"ARO/SMT",
+        "location":"",
+        "lon":37, 
+        "lat":-115,
+        "horizontal":97,
+        "vertical":80
+    },
+    {  
+        "shortname": "South Pole",
+        "title":"South Pole Telescope",
+        "location":"",
+        "lon":-80, 
+        "lat":-115,
+        "horizontal":97,
+        "vertical":80
+    }
+    
+]
