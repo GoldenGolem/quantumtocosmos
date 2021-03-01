@@ -47,7 +47,7 @@
     "pixi-filters": "^2.6.1",
     "pixi.js": "^4.8.1",
     "soundbank-pitch-shift": "^1.0.3",
-    "three": "^0.92.0",
+    "three": "^0.125.0",
     "three-collada-loader": "0.0.1",
     "three-orbit-controls": "^82.1.0",
     "three-trackballcontrols": "0.0.6",
